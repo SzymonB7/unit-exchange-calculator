@@ -1,6 +1,6 @@
-package pl.babiarz.unitexchangecalculator;
+package pl.babiarz.unitexchangecalculator.model;
 
-public enum Operator {
+public enum ArithmeticOperator {
   SUM('+'),
   SUB('-'),
   MULTI('*'),
@@ -8,7 +8,7 @@ public enum Operator {
 
 
   public final char character;
-  Operator(char character) {
+  ArithmeticOperator(char character) {
     this.character = character;
   }
 

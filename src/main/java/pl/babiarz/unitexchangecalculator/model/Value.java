@@ -1,6 +1,7 @@
-package pl.babiarz.unitexchangecalculator;
+package pl.babiarz.unitexchangecalculator.model;
 
 import java.math.BigDecimal;
+
 
 public class Value {
   private BigDecimal number;
