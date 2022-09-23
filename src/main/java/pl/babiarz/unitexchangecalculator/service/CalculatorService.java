@@ -3,7 +3,7 @@ package pl.babiarz.unitexchangecalculator.service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.springframework.stereotype.Service;
-import pl.babiarz.unitexchangecalculator.model.Operation;
+import pl.babiarz.unitexchangecalculator.model.Calculation;
 import pl.babiarz.unitexchangecalculator.model.Value;
 
 @Service
@@ -22,15 +22,15 @@ public class CalculatorService {
     return value1.getBasicValue().divide(value2.getBasicValue(), RoundingMode.DOWN);
   }
 
-  public BigDecimal calculate(Operation operation){
+  public BigDecimal calculate(Calculation calculation){
     BigDecimal result = BigDecimal.ZERO;
-    switch (operation.getArithmeticOperator()){
-      case SUM -> result = addBasicValues(operation.getValue1(),operation.getValue2());
-      case SUB -> result = subtractBasicValues(operation.getValue1(),operation.getValue2());
-      case MULTI -> result = multiplyBasicValues(operation.getValue1(),operation.getValue2());
-      case DIV -> result = divideBasicValues(operation.getValue1(),operation.getValue2());
+    switch (calculation.getArithmeticOperator()){
+      case SUM -> result = addBasicValues(calculation.getValue1(), calculation.getValue2());
+      case SUB -> result = subtractBasicValues(calculation.getValue1(), calculation.getValue2());
+      case MULTI -> result = multiplyBasicValues(calculation.getValue1(), calculation.getValue2());
+      case DIV -> result = divideBasicValues(calculation.getValue1(), calculation.getValue2());
     }
-    return unitConverter.getUnitValue(result, operation.getUnit()).setScale(2, RoundingMode.DOWN);
+    return unitConverter.getUnitValue(result, calculation.getUnit()).setScale(2, RoundingMode.DOWN);
   }
 
   public CalculatorService(UnitConverter unitConverter) {

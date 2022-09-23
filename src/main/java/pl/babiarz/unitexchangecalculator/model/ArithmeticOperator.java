@@ -1,5 +1,8 @@
 package pl.babiarz.unitexchangecalculator.model;
 
+import lombok.Getter;
+
+@Getter
 public enum ArithmeticOperator {
   SUM('+'),
   SUB('-'),

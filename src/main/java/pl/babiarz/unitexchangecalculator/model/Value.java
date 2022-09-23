@@ -1,8 +1,10 @@
 package pl.babiarz.unitexchangecalculator.model;
 
 import java.math.BigDecimal;
+import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
 
-
+@NoArgsConstructor
 public class Value {
   private BigDecimal number;
   private Unit unit;

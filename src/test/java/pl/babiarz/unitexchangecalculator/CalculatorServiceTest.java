@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.babiarz.unitexchangecalculator.model.ArithmeticOperator;
-import pl.babiarz.unitexchangecalculator.model.Operation;
+import pl.babiarz.unitexchangecalculator.model.Calculation;
 import pl.babiarz.unitexchangecalculator.model.Unit;
 import pl.babiarz.unitexchangecalculator.model.Value;
 import pl.babiarz.unitexchangecalculator.service.CalculatorService;
@@ -18,9 +18,9 @@ class CalculatorServiceTest {
     //given
     Value value1 = new Value(BigDecimal.valueOf(13), Unit.m);
     Value value2 = new Value(BigDecimal.valueOf(15), Unit.NM);
-    Operation operation = new Operation(value1, value2, ArithmeticOperator.SUM, Unit.ft);
+    Calculation calculation = new Calculation(value1, value2, ArithmeticOperator.SUM, Unit.ft);
     //when
-    BigDecimal result = calculatorService.calculate(operation);
+    BigDecimal result = calculatorService.calculate(calculation);
     //then
     Assertions.assertEquals(BigDecimal.valueOf(91184.38), result);
   }
